@@ -73,7 +73,7 @@ const languageList = ref([
 ]);
 const theme = ref("vs-dark");
 
-const editor = ref(null);
+const editor = ref<any>(null);
 const value = ref(`// 你好，世界！
 
 package com;
@@ -100,22 +100,20 @@ const options = ref({
 });
 
 const initMonaco = () => {
-  editor.value = monaco.editor.create(
-    document.getElementById("monaco-editor"),
-    {
-      value: value.value,
-      language: language.value,
-      theme: theme.value,
-      options: options.value,
-    }
-  );
+  const editorDom:HTMLElement | null = document.getElementById("monaco-editor");
+  editor.value = monaco.editor.create(editorDom, {
+    value: value.value,
+    language: language.value,
+    theme: theme.value,
+    options: options.value,
+  });
 };
 
 // 监听主题
 watch(
   () => select1.value,
   (val) => {
-    const newtheme = themeList.value.find((v) => v.label === val).value;
+    const newtheme = themeList.value.find((v:any) => v.label === val)?.value;
     theme.value = newtheme;
     monaco.editor.setTheme(theme.value);
   }
@@ -126,7 +124,7 @@ watch(
   () => select2.value,
   (val) => {
     language.value = val;
-    monaco.editor.setModelLanguage(editor.value.getModel(), language.value);
+    monaco.editor.setModelLanguage(editor.value?.getModel(), language.value);
   }
 );
 
