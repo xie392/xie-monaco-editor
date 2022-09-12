@@ -28,9 +28,6 @@ self.MonacoEnvironment = {
         if (label === 'typescript' || label === 'javascript') {
             return new tsWorker()
         }
-        if (label === 'editorWorker') {
-            return new editorWorker()
-        }
         if (label === 'python') {
             return new Worker('./python.worker.bundle.js')
         }
@@ -55,38 +52,12 @@ self.MonacoEnvironment = {
         if (label === 'ruby') {
             return new Worker('./ruby.worker.bundle.js')
         }
-        if (label === 'rust') {
-            return new Worker('./rust.worker.bundle.js')
-        }
-        if (label === 'swift') {
-            return new Worker('./swift.worker.bundle.js')
-        }
-        if (label === 'scala') {
-            return new Worker('./scala.worker.bundle.js')
-        }
-        if (label === 'kotlin') {
-            return new Worker('./kotlin.worker.bundle.js')
-        }
-        if (label === 'lua') {
-            return new Worker('./lua.worker.bundle.js')
-        }
-        if (label === 'perl') {
-            return new Worker('./perl.worker.bundle.js')
-        }
         if (label === 'r') {
             return new Worker('./r.worker.bundle.js')
         }
-        if (label === 'powershell') {
-            return new Worker('./powershell.worker.bundle.js')
-        }
+
         if (label === 'shell') {
             return new Worker('./shell.worker.bundle.js')
-        }
-        if (label === 'coffeescript') {
-            return new Worker('./coffeescript.worker.bundle.js')
-        }
-        if (label === 'fsharp') {
-            return new Worker('./fsharp.worker.bundle.js')
         }
 
 
